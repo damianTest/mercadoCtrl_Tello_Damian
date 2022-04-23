@@ -18,9 +18,12 @@ function ItemCount({stock, inicial, onAdd}) {
 
     return (
         <div>
-              <button onClick={() => handleResta()}>-</button>
-              <input readOnly value={count}/>
-              <button onClick={() =>handleSuma()}>+</button>
+             <div>
+                <button onClick={() => handleResta()}>-</button>
+                <input readOnly value={count}/>
+                <button onClick={() =>handleSuma()}>+</button>
+               </div>
+              <button >Agregar al Carrito</button>
         </div>
     );
 }
