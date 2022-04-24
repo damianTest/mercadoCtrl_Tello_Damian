@@ -1,0 +1,27 @@
+.tarj {
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+}
+
+.titulo {
+    width: 100%;
+}
+
+.detalle {
+    width: 100%;
+}
+
+.producto {
+    width: 200px;
+    height: 200px;
+    
+}
+
+.comentario {
+    width: 100%;
+}
