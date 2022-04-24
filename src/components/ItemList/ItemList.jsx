@@ -13,11 +13,11 @@ function traerProductos() {
         precio: '$180'},
         {idProducto: 2,
         nombre: 'Manzana',
-        imagen: IMAGES.image1,
+        imagen: IMAGES.image2,
         precio: '$120'},
         {idProducto: 3,
         nombre: 'Pera',
-        imagen: IMAGES.image1,
+        imagen: IMAGES.image3,
         precio: '$100'}
         ];
         setTimeout(() => {
