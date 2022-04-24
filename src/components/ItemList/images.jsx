@@ -1,6 +1,6 @@
 import b from '../../images/banan.png';
 import m from '../../images/manzana.png';
-import p from '../../images/manzana.png';
+import p from '../../images/pera.png';
 const IMAGES = {
     image1: b,
     image2: m,
