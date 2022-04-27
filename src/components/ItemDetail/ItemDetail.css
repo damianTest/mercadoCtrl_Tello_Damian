@@ -1,0 +1,22 @@
+.container-Detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.imagen_wrap{
+    float:left;
+    margin:0 1em 0 1.3em;
+    max-width:300px
+}
+.intro{font-size:.9em;
+    line-height:1.2;
+    margin:.5em 0 .5em 0;
+    color:grey;
+    max-width:200px
+}
+.product-price {
+    font-weight: bold;
+    font-size: 140%;
+  }
