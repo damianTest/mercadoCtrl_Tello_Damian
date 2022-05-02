@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
-import IMAGES from './images';
+import list from '../../data/productos';
+import { useParams} from 'react-router-dom';
 
-function traerProductos() {
+function traerProductos(categoriaid) {
     
     const myPromise = new Promise((resolve, reject) => {
-        
-    const list = [
-        {idProducto: 1,
-        nombre: 'Banana',
-        imagen: IMAGES.image1,
-        precio: '$180'},
-        {idProducto: 2,
-        nombre: 'Manzana',
-        imagen: IMAGES.image2,
-        precio: '$120'},
-        {idProducto: 3,
-        nombre: 'Pera',
-        imagen: IMAGES.image3,
-        precio: '$100'}
-        ];
+      
         setTimeout(() => {
-            resolve(list);
+            
+            if (categoriaid === undefined) {
+                    resolve(list);
+            } else {
+               
+               const arrayfind =  list.filter( (newlist) => {
+        
+                    return newlist.linea === categoriaid;
+                });
+                console.log(arrayfind);
+             return arrayfind;
+              
+            }
+            
         }
         ,2000);
     }       
@@ -31,10 +31,11 @@ function traerProductos() {
 
 function ItemList()  {
 
+    const { categoriaid } = useParams();
     const [list, setList] = useState([]);
     useEffect(() => {
-        traerProductos().then(list => setList(list) );
-    }, [])    
+        traerProductos(categoriaid).then(list => setList(list) );
+    }, [categoriaid])    
 
 
     return (

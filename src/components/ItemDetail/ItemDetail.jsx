@@ -2,8 +2,7 @@ import React from 'react';
 import './ItemDetail.css';
 
 function ItemDetail({item})  {
-    console.log(item);
-    
+      
         return (
             <div className='container-Detail'>
                 <div className='imagen_wrap'><img src={item.imagen} className='producto'/></div>

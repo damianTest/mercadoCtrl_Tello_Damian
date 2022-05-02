@@ -10,7 +10,7 @@ function ItemCount({stock, inicial, onAdd}) {
         
     }
     const handleResta = () => {
-        if(count > 0){
+        if(count > 1){
             setCount(count - 1);
         }
     }

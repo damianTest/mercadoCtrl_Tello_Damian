@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavBar.css';
 import CartWidget from '../CardWidget/CartWidget';
-
+import { Link } from 'react-router-dom';
 
 function NavBar(props) {
     return (
@@ -9,9 +9,10 @@ function NavBar(props) {
            
             <ul className='nav'>
                 <h1>Mercado Ctl</h1>
-                <a href='#'>Linea de Producto</a>
-                <a href='#'>Productos</a>
-                <a href='#'>Consultar Ticket</a>
+                <Link to='/'>Inicio</Link>
+                <Link to='/categoria/Frutas'>Frutas</Link>
+                <Link to='/categoria/Verduras'>Verduras</Link>
+              
                 <CartWidget/>
             </ul>
            

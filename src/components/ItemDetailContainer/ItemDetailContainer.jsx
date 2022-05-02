@@ -1,21 +1,19 @@
 import React , { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import IMAGES from '../ItemList/images';
 
+import list from '../../data/productos';
+import { useParams} from 'react-router-dom';
 
-function getItem() {
+function getItem(id) {
     
     const myPromise = new Promise((resolve, reject) => {
-        
-    const list = [
-        {idProducto: 1,
-        nombre: 'Manzana',
-        imagen: IMAGES.image2,
-        detalle: 'La manzana es una de las frutas más completas y saludables que puedes consumir, y es que tal y como indica el refrán inglés, "an apple a day keeps the doctor away", comer una manzana al día mantiene al médico lejos de ti.',
-        precio: '$120'}
-        ];
+           
         setTimeout(() => {
-            resolve(list);
+            const producto = list.find( (productos) => {
+                    return parseInt(id) === productos.idProducto;
+            }
+            );
+             resolve(producto);
         }
         ,2000);
     }       
@@ -24,22 +22,18 @@ function getItem() {
 }
 
 const ItemDetailContainer = () =>  
-
  {
-
-    const [list, setList] = useState([]);
+    const [producto, setProducto] = useState([]);
+    const { productoid } = useParams();
     useEffect(() => {
-        getItem().then(list => setList(list) );
-    }, []) 
+        getItem(productoid).then(producto => setProducto(producto) );
+    }, [productoid]) ;
 
     return (
         <div >
-            {list.map((item,i) => <ItemDetail item={item} key={item.idProducto} />)}
-           
+            <ItemDetail item={producto} key={producto.idProducto} />
         </div>
     );
 }
 
-export default ItemDetailContainer
-
-;
+export default ItemDetailContainer;
