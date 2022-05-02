@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Comentarios del proyecto
+Mi objetivo y espectativas del cruso son aprender las herramientas basicas
+que me permitan a futuro empezar a desarrollar aplicaciones front.
+El projecto lo elegi por ya contar con un projecto back-end de manejo de productos mercado 
+
 ## Available Scripts
 
 In the project directory, you can run:
