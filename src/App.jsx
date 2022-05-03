@@ -12,7 +12,7 @@ function App() {
        {/* <ItemListContainer props = 'greeting'/> */}
        <Routes>
          <Route path='/' element={<ItemListContainer/>}></Route>
-         <Route path='/categoria/:categoriaid' element={<ItemListContainer/>}></Route>
+         <Route path='/categoria/:categoriaid' element={<ItemListContainer/>} titulo='ssssssss'></Route>
          <Route path='/linea/:productoid' element={ <ItemDetailContainer />}></Route>
      
       </Routes>

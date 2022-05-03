@@ -6,10 +6,10 @@ import { useParams} from 'react-router-dom';
 function traerProductos(categoriaid) {
     
     const myPromise = new Promise((resolve, reject) => {
-      
+        const arrayfind = categoriaid ? list.filter( newlist =>  newlist.linea === categoriaid ) : list;
         setTimeout(() => {
-            
-            if (categoriaid === undefined) {
+            resolve(arrayfind);
+           {/* if (c === undefined) {
                     resolve(list);
             } else {
                
@@ -21,7 +21,7 @@ function traerProductos(categoriaid) {
              return arrayfind;
               
             }
-            
+            */}
         }
         ,2000);
     }       
@@ -32,15 +32,18 @@ function traerProductos(categoriaid) {
 function ItemList()  {
 
     const { categoriaid } = useParams();
-    const [list, setList] = useState([]);
+    const [productosfiltrados, setProductos] = useState([]);
     useEffect(() => {
-        traerProductos(categoriaid).then(list => setList(list) );
+        traerProductos(categoriaid).then(myPromise => 
+            setProductos(myPromise) );
     }, [categoriaid])    
 
 
     return (
             <div>
-              {list.map((item,i) => <Item item={item} key={item.idProducto} />)} 
+ {console.log('div ss:' + productosfiltrados.length)};
+           {productosfiltrados.map((item,i) => <Item item={item} key={item.idProducto} />)} 
+ 
             </div>
     );
     
