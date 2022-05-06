@@ -11,7 +11,7 @@ const ItemListContainer = ({props}) =>
     return (
         <div className='item'>
             <ItemList />
-            <ItemCount stock={5} inicial= {0} />
+           {/* <ItemCount stock={5} inicial= {0} />*/}
            
         </div>
     );

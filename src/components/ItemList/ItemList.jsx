@@ -41,7 +41,7 @@ function ItemList()  {
 
     return (
             <div>
- {console.log('div ss:' + productosfiltrados.length)};
+ 
            {productosfiltrados.map((item,i) => <Item item={item} key={item.idProducto} />)} 
  
             </div>
