@@ -1,15 +1,19 @@
 import { createContext, useState } from "react";
 
 
-const CartContext = createContext({
-    
-});
+const CartContext = createContext({});
 
 export const CartContextProvider = ({ children }) => {
     const [productosList, setProductosList] = useState([]);
     
     const addProductos = (producto, quantity) => {
-        setProductosList(producto, ...productosList);
+
+        if(isInCart(producto.idProducto)) {
+            const productoExistente = getProducto(producto.idProducto);
+            quantity = quantity + productoExistente.quantity;
+         }
+        const newProducto = { ...producto, quantity};
+        setProductosList([ ...productosList, newProducto  ]);
     }
 
     const removeProducto = (productoid) => {
@@ -17,8 +21,12 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const isInCart = (productoid) => {
-       return productosList.find((producto) => producto.idProducto === parseInt(productoid)) ? true : false;
+       return getProducto(productoid) ? true : false;
       
+    }
+
+    const getProducto = (productoid) => {
+       return  productosList.find((producto) => producto.idProducto === parseInt(productoid));
     }
 
     const clear = () => {

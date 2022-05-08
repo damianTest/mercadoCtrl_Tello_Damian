@@ -2,18 +2,17 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
-import CartContext from '../../store/CartContext';
+import CartContextProvider from '../../store/CartContext';
 
 function ItemDetail({item})  {
 
     const [cantidadDeProductos, setCantidadDeProductos] = useState(null);
-    const cartCtx = useContext(CartContext);
+    const {addProductos} = useContext(CartContextProvider);
 
     function addHandler(quantityToAdd) {
-       {/* console.log(quantityToAdd);*/}
         setCantidadDeProductos(quantityToAdd);
-       console.log(cartCtx);
-       
+        addProductos(item, quantityToAdd);
+    
     }
       
         return (
@@ -21,7 +20,7 @@ function ItemDetail({item})  {
                 <div className='imagen_wrap'><img src={item.imagen} className='producto'/></div>
                 
                 <div className='intro' >{item.detalle} <div className='product-price'>{item.precio}</div> 
-       <div >
+            <div >
                     {cantidadDeProductos ?
                          <button><Link to='/cart/' >Terminar compra ({ cantidadDeProductos } items)</Link></button> :
                          <ItemCount initial={1} stock={item.cantidad} onAdd={addHandler} />

@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import CartContext from './store/CartContext';
+import {CartContextProvider } from './store/CartContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CartContext.Provider value = {{}}>
+      <CartContextProvider>
+
           <App />
-       </CartContext.Provider>
+       </CartContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
