@@ -14,10 +14,11 @@ export const CartContextProvider = ({ children }) => {
          }
         const newProducto = { ...producto, quantity};
         setProductosList([ ...productosList, newProducto  ]);
+      
     }
 
     const removeProducto = (productoid) => {
-        setProductosList(productosList.filter(newList => newList !== productoid ));
+        setProductosList(productosList.filter(newList => newList.idProducto !== parseInt( productoid) ));
     }
 
     const isInCart = (productoid) => {
@@ -33,13 +34,18 @@ export const CartContextProvider = ({ children }) => {
         setProductosList([]);
     }
 
+    const totalCount = () => {
+        return productosList.reduce((total, item) => total + item.quantity, 0);
+      };
+
     return (
         <CartContext.Provider value={{
             productos: productosList,
             addProductos: addProductos,
             removeProducto: removeProducto,
             clear: clear,
-            isInCart: isInCart
+            isInCart: isInCart,
+            totalCount: totalCount
         }}>
             { children }
         </CartContext.Provider>

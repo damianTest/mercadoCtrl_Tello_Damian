@@ -12,7 +12,7 @@ function Item({item})  {
                         <img src={item.imagen} className='producto'/>
                     </div>
                 </div>
-                <div className='comentario'>{item.precio}
+                <div className='comentario'>${item.precio}
                 
                 </div>
                 <div>

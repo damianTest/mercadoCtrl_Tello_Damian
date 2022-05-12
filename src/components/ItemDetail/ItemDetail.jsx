@@ -12,17 +12,17 @@ function ItemDetail({item})  {
     function addHandler(quantityToAdd) {
         setCantidadDeProductos(quantityToAdd);
         addProductos(item, quantityToAdd);
-    
+
     }
       
         return (
             <div className='container-Detail'>
                 <div className='imagen_wrap'><img src={item.imagen} className='producto'/></div>
                 
-                <div className='intro' >{item.detalle} <div className='product-price'>{item.precio}</div> 
+                <div className='intro' >{item.detalle} <div className='product-price'>$ {item.precio}</div> 
             <div >
                     {cantidadDeProductos ?
-                         <button><Link to='/cart/' >Terminar compra ({ cantidadDeProductos } items)</Link></button> :
+                         <button><Link to='/cart/' >Terminar compra </Link></button> :
                          <ItemCount initial={1} stock={item.cantidad} onAdd={addHandler} />
                     }
                 </div>
