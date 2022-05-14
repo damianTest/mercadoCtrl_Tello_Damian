@@ -2,6 +2,7 @@ import React from 'react';
 import './Item.css';
 import { Link } from 'react-router-dom';
 
+
 function Item({item})  {
 
         return (
@@ -17,7 +18,7 @@ function Item({item})  {
                 </div>
                 <div>
                 
-                   <Link to={'/linea/' + item.idProducto}> 
+                   <Link to={'/linea/' + item.id}> 
                      <button>Ver mas....</button>
                       </Link> 
                      </div> 

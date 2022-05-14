@@ -3,9 +3,15 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 
 import list from '../../data/productos';
 import { useParams} from 'react-router-dom';
+import { doc,  getDoc,  getDocs, getFirestore } from 'firebase/firestore';
 
 function getItem(id) {
+ 
+    const db = getFirestore();
+    const itemRef = doc(db, 'items', id);
+    return getDoc(itemRef);
     
+{/*
     const myPromise = new Promise((resolve, reject) => {
            
         setTimeout(() => {
@@ -19,6 +25,7 @@ function getItem(id) {
     }       
     );
     return myPromise;
+*/ }
 }
 
 const ItemDetailContainer = () =>  
@@ -26,12 +33,13 @@ const ItemDetailContainer = () =>
     const [producto, setProducto] = useState([]);
     const { productoid } = useParams();
     useEffect(() => {
-        getItem(productoid).then(producto => setProducto(producto) );
+        getItem(productoid).then(snapshot => setProducto(
+            {...snapshot.data(), id : snapshot.id}) );
     }, [productoid]) ;
 
     return (
         <div >
-            <ItemDetail item={producto} key={producto.idProducto} />
+            <ItemDetail item={producto} key={producto.id} />
         </div>
     );
 }

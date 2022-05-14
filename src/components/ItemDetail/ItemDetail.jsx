@@ -14,7 +14,7 @@ function ItemDetail({item})  {
         addProductos(item, quantityToAdd);
 
     }
-      
+
         return (
             <div className='container-Detail'>
                 <div className='imagen_wrap'><img src={item.imagen} className='producto'/></div>

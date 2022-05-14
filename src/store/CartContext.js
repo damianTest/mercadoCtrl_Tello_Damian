@@ -8,8 +8,8 @@ export const CartContextProvider = ({ children }) => {
     
     const addProductos = (producto, quantity) => {
 
-        if(isInCart(producto.idProducto)) {
-            const productoExistente = getProducto(producto.idProducto);
+        if(isInCart(producto.id)) {
+            const productoExistente = getProducto(producto.id);
             quantity = quantity + productoExistente.quantity;
          }
         const newProducto = { ...producto, quantity};
@@ -18,7 +18,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const removeProducto = (productoid) => {
-        setProductosList(productosList.filter(newList => newList.idProducto !== parseInt( productoid) ));
+        setProductosList(productosList.filter(newList => newList.id !==  productoid ));
     }
 
     const isInCart = (productoid) => {
@@ -27,7 +27,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const getProducto = (productoid) => {
-       return  productosList.find((producto) => producto.idProducto === parseInt(productoid));
+       return  productosList.find((producto) => producto.id === productoid);
     }
 
     const clear = () => {
